@@ -167,7 +167,7 @@ class: center
 ---
 layout: false
 class: center, middle
-# よくある作業の枝分かれ
+# ブランチ
 
 .left[
 .large[
@@ -181,7 +181,6 @@ class: center, middle
 ---
 layout: false
 class: center, middle
-# 枝分かれ (ブランチ)
 
 ![ブランチ](http://www.backlog.jp/git-guide/img/post/stepup/capture_stepup1_1_2.png)
 
@@ -204,8 +203,7 @@ class: center
 # GitHubとは？
 .left[
 .large[
-- GitのWebサービス
-  - e.g., https://www.dropbox.com/
+- GitのWebインタフェース
 - ソフトウェアの公開場所
   - e.g., Source Forge, Vector, 窓の杜
 - プログラマ向けSNS
@@ -222,8 +220,8 @@ class: center
 - ソースコード+レポートをGitHubに提出
 - 他の人を参考にするのはOK
 - 丸写しは減点
-  - 自分なりの解説を入れること
-  - 流用した箇所はソースを明記する
+  - 自分なりの工夫・解説を入れること
+  - 流用した箇所はソースを明記すべし
 ]
 ]
 ---
@@ -303,11 +301,6 @@ README.md
 ```
 ]
 ]
----
-class: center
-
-![clone](http://cdn-ak.f.st-hatena.com/images/fotolife/a/akiyoko/20141120/20141120230844.png)
-
 ---
 class: center
 # ファイルを書き換える
@@ -435,7 +428,9 @@ To https://github.com/handai-trema/self_intro
 class: center
 # ここまででやったこと
 
-![一連の図](http://www.cs.swarthmore.edu/~adanner/cs40/f14/gitrepos.gif)
+![一連の図](http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png)
+
+.footnote[http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png]
 
 ---
 class: center
@@ -457,12 +452,12 @@ details.
 
 .large[
 - 他の人が同じ行をすでにpushしていた
-- 変更をマージして、再びpushする
+- 最新版にマージして、再びpushする
 ]
 ]
 ---
 class: center
-# 変更のマージ
+# 最新版の取得
 
 .left[
 .large-code[
@@ -481,7 +476,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ]
 
 .large[
-`README.md`で競合(CONFLICT)が起こった
+`README.md`で競合(CONFLICT)が起こっている
 ]
 ]
 ---
@@ -520,7 +515,7 @@ index 7be9e86,622ff93..0000000
 --- a/README.md
 +++ b/README.md
 @@@ -6,4 -6,4 +6,8 @@@ _注意: このページは誰からで
-  
+
   * こんにちは [@yasuhito](https://github.com/yasuhito) です! Trema を開発しています。
     これからよろしくおねがいします!
 ++<<<<<<< HEAD
