@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
+        <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
+        <title>Git入門</title>
+        <style>
+         @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+         @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+         @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+         body {
+             font-family: 'Yanone Kaffeesatz';
+         }
+         h1, h2, h3 {
+             font-family: 'Yanone Kaffeesatz';
+             font-weight: 400;
+             margin-bottom: 0;
+         }
+         .remark-slide-content h1 { font-size: 3em; }
+         .remark-slide-content h2 { font-size: 2em; }
+         .remark-slide-content h3 { font-size: 1.6em; }
+         .footnote {
+             position: absolute;
+             bottom: 3em;
+         }
+         li p { line-height: 1.25em; }
+         .red { color: #fa0000; }
+         .highlight { background: #fffb88; }
+         .large { font-size: 2em; }
+         .large-code code { font-size: 1.1em; }
+         a, a > code {
+             color: rgb(249, 38, 114);
+             text-decoration: none;
+         }
+         code {
+             background: #e7e8e2;
+             border-radius: 5px;
+         }
+         .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+         .remark-code-line-highlighted     { background-color: #373832; }
+         .pull-left {
+             float: left;
+             width: 47%;
+         }
+         .pull-right {
+             float: right;
+             width: 47%;
+         }
+         .pull-right ~ p {
+             clear: both;
+         }
+         #slideshow .slide .content code {
+             font-size: 0.8em;
+         }
+         #slideshow .slide .content pre code {
+             font-size: 0.9em;
+             padding: 15px;
+         }
+         .inverse {
+             background: #272822;
+             color: #777872;
+             text-shadow: 0 0 20px #333;
+         }
+         .inverse h1, .inverse h2 {
+             color: #f3f3f3;
+             line-height: 0.8em;
+         }
+
+         /* Slide-specific styling */
+         #slide-inverse .footnote {
+             bottom: 12px;
+             left: 20px;
+         }
+         #slide-how .slides {
+             font-size: 0.9em;
+             position: absolute;
+             top:  151px;
+             right: 140px;
+         }
+         #slide-how .slides h3 {
+             margin-top: 0.2em;
+         }
+         #slide-how .slides .first, #slide-how .slides .second {
+             padding: 1px 20px;
+             height: 90px;
+             width: 120px;
+             -moz-box-shadow: 0 0 10px #777;
+             -webkit-box-shadow: 0 0 10px #777;
+             box-shadow: 0 0 10px #777;
+         }
+         #slide-how .slides .first {
+             background: #fff;
+             position: absolute;
+             top: 20%;
+             left: 20%;
+             z-index: 1;
+         }
+         #slide-how .slides .second {
+             position: relative;
+             background: #fff;
+             z-index: 0;
+         }
+
+         /* Two-column layout */
+         .left-column {
+             color: #777;
+             width: 20%;
+             height: 92%;
+             float: left;
+         }
+         .left-column h2:last-of-type, .left-column h3:last-child {
+             color: #000;
+         }
+         .right-column {
+             width: 75%;
+             float: right;
+             padding-top: 1em;
+         }
+        </style>
+    </head>
+    <body>
+        <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Git & GitHub 入門
+---
+layout: false
+class: center
+# Gitとは？
+
+.left[
+.large[
+- 分散バージョン管理システムの一つ
+- 高級版Dropboxのようなもの
+  - ファイルをPC間で同期
+  - ファイルの変更履歴をすべて保存
+- Gitはもはや基本リテラシの1つ
+  - GitHubの登録ユーザ数 = 970万人
+]
+]
+---
+layout: false
+class: center, middle
+# Gitを使ったことのある人？
+---
+layout: false
+class: center, middle
+# Gitの便利な点は？
+---
+layout: false
+class: center
+# 履歴情報が豊富
+
+.left[
+.large[
+- .highlight[いつ]、ファイルの.highlight[どこ]を変更した？
+- 変更した.highlight[理由]は？
+- .highlight[誰が]その変更をした？
+
+例: バージョン[0.5.2での変更点](https://github.com/yasuhito/trema-book/compare/0.5.0...0.5.2)を確認
+]
+]
+---
+layout: false
+class: center, middle
+# ブランチ
+
+.left[
+.large[
+論文書きやコーディングは一本道？
+
+- 関連研究と「はじめに」を並行に書く
+- 実験的な新機能 (後で捨てるかも)
+- ソフトウェアを5人で分担して実装
+]
+]
+---
+layout: false
+class: center, middle
+
+![ブランチ](http://www.backlog.jp/git-guide/img/post/stepup/capture_stepup1_1_2.png)
+
+.footnote[http://www.backlog.jp/git-guide/img/post/stepup/capture_stepup1_1_2.png]
+---
+layout: false
+class: center, middle
+
+# 実際のブランチ例
+
+<br/>
+.large[
+本講義テキストの[ブランチを見る](https://github.com/yasuhito/trema-book/network)
+]
+
+---
+layout: false
+class: center
+
+# GitHubとは？
+.left[
+.large[
+- GitのWebインタフェース
+- ソフトウェアの公開場所
+  - e.g., Source Forge, Vector, 窓の杜
+- プログラマ向けSNS
+  - "ソーシャル" コーディング
+]
+]
+---
+layout: false
+class: center
+
+# 課題の提出方法
+.left[
+.large[
+- ソースコード+レポートをGitHubに提出
+- 他の人を参考にするのはOK
+- 丸写しは減点
+  - 自分なりの工夫・解説を入れること
+  - 流用した箇所はソースを明記すべし
+]
+]
+---
+class: center
+# 課題1: GitHubで自己紹介
+
+<br/>
+
+.large[
+GitHubの
+[handai-trema/self_intro](https://github.com/handai-trema/self_intro)
+リポジトリに簡単な自己紹介を入れてみよう。
+]
+
+<br/>
+
+.left[
+.large[
+`README.md`:
+]
+.large-code[
+```
+* こんにちは @yasuhito です! Trema を開発しています。
+* ○○研の @foobar です。△△の研究をしています。
+* ...
+```
+]
+]
+---
+class: center
+# ユーザ情報の設定
+
+.left[
+.large[
+最初に一度だけ次を実行:
+]
+
+.large-code[
+```
+$ git config --global user.name "Yasuhito Takamiya"
+$ git config --global user.email "yasuhito@gmail.com"
+```
+]
+
+.large[
+- ユーザ名とメールアドレスを設定
+- .highlight[誰が変更したか]を記録するため
+]
+]
+---
+class: center
+# リポジトリの複製
+
+.left[
+.large[
+GitHubの[handai-trema/self_intro](https://github.com/handai-trema/self_intro)を手元にクローン:
+]
+
+.large-code[
+```bash
+# git clone <リポジトリのURL>
+$ git clone git@github.com:handai-trema/self_intro.git
+Cloning into 'self_intro'...
+remote: Counting objects: 6, done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 6
+Unpacking objects: 100% (6/6), done.
+Checking connectivity... done.
+```
+]
+.large[
+`self_intro/`ディレクトリができる:
+]
+.large-code[
+```
+$ ls self_intro
+README.md
+```
+]
+]
+---
+class: center
+# ファイルを書き換える
+
+.left[
+.large[
+自己紹介をREADME.mdに追加:
+]
+
+.large-code[
+```bash
+$ cd self_intro
+$ vi README.md  # お好きなエディタで
+```
+]
+
+.large[
+変更を確認:
+]
+]
+
+.left[
+```
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+]
+---
+class: center
+# 変更点のコミット
+
+.left[
+.large[
+コミットするファイルを指定
+]
+
+.large-code[
+```bash
+$ git add README.md
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.md
+```
+]
+
+.large[
+コメントを付けてコミット:
+]
+]
+
+.left[
+```bash
+$ git commit -m "自己紹介をすこし詳しく書く"
+[master 0005846] 自己紹介をすこし詳しく書く
+ 1 file changed, 1 insertion(+)
+```
+]
+---
+class: center
+# 変更履歴を確認
+
+.left[
+.large-code[
+```
+$ git log
+* commit 00058463c69423e1e65e96248ff12a2b1b7ac6e0
+| Author: Yasuhito Takamiya <yasuhito@gmail.com>
+| Date:   Tue Oct 6 09:02:51 2015 +0900
+|
+|     自己紹介をすこし詳しく書く
+|
+* commit dc38f65541f5f49e521d34e74106b1cf18222721
+| Author: Yasuhito Takamiya <yasuhito@gmail.com>
+| Date:   Fri Sep 25 11:09:06 2015 +0900
+|
+|     @yasuhito の自己紹介を追加。
+|
+* commit 132a145527ac5caaef5f4861f0059d87b26a0d1f
+  Author: Yasuhito Takamiya <yasuhito@gmail.com>
+  Date:   Fri Sep 25 10:59:38 2015 +0900
+
+      first commit
+```
+]
+]
+---
+class: center
+# GitHubに反映
+
+.left[
+.large-code[
+```bash
+$ git push origin master
+Username for 'https://github.com': yasuhito
+Password for 'https://yasuhito@github.com': ********
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 374 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/handai-trema/self_intro
+   dc38f65..0005846  master -> master
+```
+]
+
+.large[
+- `git push origin master`
+  - `origin`: GitHubのリポジトリ
+  - `master`: ブランチ名
+]
+]
+---
+class: center
+# ここまででやったこと
+
+![一連の図](http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png)
+
+.footnote[http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png]
+
+---
+class: center
+# pushに失敗したら？
+
+.left[
+```bash
+$ git push
+To git@github.com:handai-trema/self_intro.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:handai-trema/self_intro.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for
+details.
+```
+
+.large[
+- 他の人が同じ行をすでにpushしていた
+- 最新版にマージして、再びpushする
+]
+]
+---
+class: center
+# 最新版の取得
+
+.left[
+.large-code[
+```bash
+$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:handai-trema/self_intro
+   0005846..85231f7  master     -> origin/master
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+]
+
+.large[
+`README.md`で競合(CONFLICT)が起こっている
+]
+]
+---
+class: center
+# 競合の確認
+
+.left[
+.large-code[
+```bash
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+]
+]
+---
+class: center
+# 競合の中身
+
+.left[
+```bash
+$ git diff
+diff --cc README.md
+index 7be9e86,622ff93..0000000
+--- a/README.md
++++ b/README.md
+@@@ -6,4 -6,4 +6,8 @@@ _注意: このページは誰からで
+
+  * こんにちは [@yasuhito](https://github.com/yasuhito) です! Trema を開発しています。
+    これからよろしくおねがいします!
+++<<<<<<< HEAD
+ +* こんにちは @barbaz です。趣味はフットサルです。
+++=======
++ * ○○研の @foobar です。△△の研究をしています。
+++>>>>>>> 85231f7558e299072167df98b7a1cc772ae7f901
+```
+]
+---
+class: center
+# 競合の解決
+
+.left[
+.large[
+エディタで`README.md`を次のように直す
+]
+]
+
+.left[
+```
+  ...
+* こんにちは [@yasuhito](https://github.com/yasuhito) です! Trema を開発しています。
+  これからよろしくおねがいします!
+* こんにちは @barbaz です。趣味はフットサルです。
+* ○○研の @foobar です。△△の研究をしています。
+```
+
+```bash
+$ git add README.md
+$ git commit
+Waiting for Emacs...
+[master fc3387a] Merge branch 'master' of github.com:handai-trema/self_intro
+$ git push
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 670 bytes | 0 bytes/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To git@github.com:handai-trema/self_intro.git
+   85231f7..fc3387a  master -> master
+```
+]
+---
+class: center
+# 課題の提出方法 (補足)
+
+.left[
+.large[
+- ソースコード+レポートをGitHubに提出
+- リンクを[handai-trema/self_intro](https://github.com/handai-trema/self_intro)に追加
+]
+]
+
+.left[
+```
+* こんにちは @yasuhito です! Trema を開発しています。
+ * (第1回レポート)[https://github.com/handai-trema/hello_trema_handai-yasuhito]
+```
+]
+---
+class: center
+# ブランチ
+
+.left[
+.large[
+- 必須ではないが、使えると作業効率UP↑
+- 演習後半のチーム課題にも有効
+- 必要に応じて習得しておいてください
+]
+]
+---
+class: center
+# Gitの情報
+.left[
+.large[
+* [サルでもわかるGit入門](http://www.backlog.jp/git-guide/)
+* [いつやるの？Git入門 v1.1.0](http://www.slideshare.net/matsukaz/git-28304397)
+* [こわくないGit](http://www.slideshare.net/kotas/git-15276118)
+* [Learn Git Branching](http://k.swd.cc/learnGitBranching-ja/)
+
+...他にも、解説記事はたくさんあります.red[*]
+]
+]
+
+.footnote[.red.bold[*] はてブで["git" + "入門" タグで検索](http://b.hatena.ne.jp/search/tag?safe=on&sort=popular&q=git+%E5%85%A5%E9%96%80)してみよう]
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="remark.language.js"></script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark',
+          highlightLines: false
+        }) ;
+    </script>
+  </body>
+</html>
