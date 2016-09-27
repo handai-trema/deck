@@ -6,7 +6,7 @@ HelloTrema が起動したら次のメッセージを表示するようにして
 HelloTrema started.
 ```
 
-ただし、次の回答ではダメ (なぜダメか？も考えよう)
+ただし、次の回答ではダメ (なぜダメか？も考察しよう)
 
 ```ruby
 class HelloTrema < Trema::Controller
@@ -26,4 +26,4 @@ class HelloTrema < Trema::Controller
 
 2. ソースコードを改造しコミットする
 
-3. レポートを書き提出
+3. レポートを書き提出。自己紹介リポジトリ (handai-trema/self-intro-[ユーザ名]) にレポートを追加してください。
