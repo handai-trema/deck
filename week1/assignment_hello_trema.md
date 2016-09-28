@@ -21,9 +21,8 @@ class HelloTrema < Trema::Controller
 
 ### 提出方法
 
-1. 提出用リポジトリの作成。[こちらのリンク](https://classroom.github.com/assignment-invitations/1432105c8d4577dee37a0e001de48830)
-   をクリックすると、自動的に handai-trema/hello-world-[ユーザ名] というリポジトリが作成できます。
+1. リポジトリ handai-trema/hello-trema-[ユーザ名] のソースコードを改造しコミットする
 
-2. ソースコードを改造しコミットする
+2. レポートを書き同じリポジトリにコミット
 
-3. レポートを書き提出。自己紹介リポジトリ (handai-trema/self-intro-[ユーザ名]) にレポートを追加してください。
+2. 自己紹介リポジトリ (handai-trema/self-intro-[ユーザ名]) にレポートへのリンクを追加
