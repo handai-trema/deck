@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
         <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
-        <title>Git入門</title>
+        <title>GitHub入門</title>
         <style>
          @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
          @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -161,20 +161,14 @@ class: center
 
 <br/>
 
-.large[
-GitHubの
-[handai-trema/self_intro](https://github.com/handai-trema/self_intro)
-リポジトリに簡単な自己紹介を入れてみよう。
-]
-
-<br/>
-
 .left[
 .large[
-`README.md`:
+1. 自己紹介リポジトリを作ろう
+2. [handai-trema/self_intro](https://github.com/handai-trema/self_intro)リポジトリに自己紹介リポジトリへのリンクを入れよう
 ]
+
 .large-code[
-```
+```bash
 * こんにちは @yasuhito です! Trema を開発しています。
 * ○○研の @foobar です。△△の研究をしています。
 * ...
@@ -191,7 +185,7 @@ class: center
 ]
 
 .large-code[
-```
+```bash
 $ git config --global user.name "Yasuhito Takamiya"
 $ git config --global user.email "yasuhito@gmail.com"
 ```
@@ -202,33 +196,36 @@ $ git config --global user.email "yasuhito@gmail.com"
 - .highlight[誰が変更したか]を記録するため
 ]
 ]
+
+---
+class: center
+# リポジトリの作成
+
+.left[
+.large[
+1. GitHubの[handai-trema/self_intro](https://github.com/handai-trema/self_intro)を開く
+2. 「リポジトリの作成」をクリック
+3. handai-trema/self-intro-[ユーザ名]というリポジトリができる
+]
+]
+
 ---
 class: center
 # リポジトリの複製
 
 .left[
 .large[
-GitHubの[handai-trema/self_intro](https://github.com/handai-trema/self_intro)を手元にクローン:
+GitHubのhandai-trema/self-intro-[ユーザ名]を手元にクローン:
 ]
 
 .large-code[
 ```bash
-# git clone <リポジトリのURL>
-$ git clone git@github.com:handai-trema/self_intro.git
-Cloning into 'self_intro'...
+$ git clone git@github.com:handai-trema/self-intro-yasuhito.git
+Cloning into 'self-intro-yasuhito'...
 remote: Counting objects: 6, done.
 remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 6
 Unpacking objects: 100% (6/6), done.
 Checking connectivity... done.
-```
-]
-.large[
-`self_intro/`ディレクトリができる:
-]
-.large-code[
-```
-$ ls self_intro
-README.md
 ```
 ]
 ]
@@ -243,18 +240,19 @@ class: center
 
 .large-code[
 ```bash
-$ cd self_intro
+$ cd self-intro-yasuhito
 $ vi README.md  # お好きなエディタで
 ```
 ]
+]
 
-.large[
-変更を確認:
-]
-]
+---
+class: center
+
+# 変更を確認
 
 .left[
-```
+```bash
 $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -288,11 +286,11 @@ Changes to be committed:
         modified:   README.md
 ```
 ]
+]
 
-.large[
-コメントを付けてコミット:
-]
-]
+---
+class: center
+# コメントを付けてコミット
 
 .left[
 ```bash
@@ -307,7 +305,7 @@ class: center
 
 .left[
 .large-code[
-```
+```bash
 $ git log
 * commit 00058463c69423e1e65e96248ff12a2b1b7ac6e0
 | Author: Yasuhito Takamiya <yasuhito@gmail.com>
@@ -344,7 +342,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 374 bytes | 0 bytes/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/handai-trema/self_intro
+To https://github.com/handai-trema/self-intro-yasuhito
    dc38f65..0005846  master -> master
 ```
 ]
@@ -355,13 +353,60 @@ To https://github.com/handai-trema/self_intro
   - `master`: ブランチ名
 ]
 ]
+
 ---
 class: center
-# ここまででやったこと
+# 共有リポジトリの編集
+
+.left[
+.large[
+* 今度は[handai-trema/self_intro](https://github.com/handai-trema/self_intro) を編集する
+* 先ほど作った個人リポジトリへのリンクをREADME.mdに追加
+]
+
+.large-code[
+```bash
+## 受講者一覧
+
+* [@yasuhito](https://github.com/handai-trema/self-intro-yasuhito)
+```
+]
+]
+
+.large[
+ただし.highlight[共有リポジトリ]なので注意が必要
+]
+
+---
+class: center
+# 共有リポジトリ
 
 ![一連の図](http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png)
 
 .footnote[http://www.backlog.jp/git-guide/img/post/intro/capture_intro1_2_2.png]
+
+---
+class: center
+# 共有リポジトリの編集
+
+.left[
+.large[
+操作はまったく同じ
+]
+
+```bash
+$ git clone git@github.com:handai-trema/self_intro.git
+$ cd self_intro
+$ vi README.md
+$ git add README.md
+$ git commit
+$ git push origin master
+```
+
+.large[
+ただし、他の人も同じファイルを編集しているので.highlight[pushに失敗することがある]
+]
+]
 
 ---
 class: center
@@ -386,6 +431,7 @@ details.
 - 最新版にマージして、再びpushする
 ]
 ]
+
 ---
 class: center
 # 最新版の取得
@@ -467,7 +513,7 @@ class: center
 ]
 
 .left[
-```
+```bash
   ...
 * こんにちは [@yasuhito](https://github.com/yasuhito) です! Trema を開発しています。
   これからよろしくおねがいします!
@@ -485,39 +531,10 @@ Counting objects: 6, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (4/4), done.
 Writing objects: 100% (6/6), 670 bytes | 0 bytes/s, done.
-Total 6 (delta 2), reused 0 (delta 0)
-To git@github.com:handai-trema/self_intro.git
-   85231f7..fc3387a  master -> master
+...
 ```
 ]
----
-class: center
-# 課題の提出方法 (補足)
 
-.left[
-.large[
-- ソースコード+レポートをGitHubに提出
-- リンクを[handai-trema/self_intro](https://github.com/handai-trema/self_intro)に追加
-]
-]
-
-.left[
-```
-* こんにちは @yasuhito です! Trema を開発しています。
- * (第1回レポート)[https://github.com/handai-trema/hello_trema_handai-yasuhito]
-```
-]
----
-class: center
-# ブランチ
-
-.left[
-.large[
-- 必須ではないが、使えると作業効率UP↑
-- 演習後半のチーム課題にも有効
-- 必要に応じて習得しておいてください
-]
-]
 ---
 class: center
 # Gitの情報
