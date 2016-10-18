@@ -1,9 +1,9 @@
 ## Assignment (Learning Switch for Multiple Swithces)
 
-Explain procedures of the learning switch (multi_learning_switch.rb).  Your explanation should include the following points:
-* Explain how the learning switch realizes its forwarding database (FDB) to manage multiple switches and where on the source codes the operations are performed.
-* Explain content of the FDB, including transitions of the content
-* Explain it with figures.
+Explain procedures of the learning switch controller (multi_learning_switch.rb).  Your explanation should cover the following points:
+* Explain how the learning switch controller realizes its forwarding database (FDB) to manage multiple switches and where on the source codes the operations are performed.
+* Explain content in the FDB, including transitions of the content
+* Use figures.
 
 ![](multi_learning_switch.jpeg)
 
