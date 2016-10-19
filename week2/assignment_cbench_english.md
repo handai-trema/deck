@@ -1,6 +1,6 @@
 ## Assignment 1 (Investigating Bottlenecks of Cbench)
 
-First find bottlenecks of Cbench, using a one of the following Ruby profilers, then explain where bottlenecks are and why they are the bottlenecks.
+First find bottlenecks of Cbench, using a one of the following Ruby profilers, then explain where bottlenecks are and why those points are bottlenecks.
 
 ### Ruby Profilers
 
